@@ -101,7 +101,7 @@ if run_simulation:
             ax.set_ylabel('Balance')
             ax.legend()
             chart_placeholder.pyplot(fig)
-            time.sleep(0.02)
+            time.sleep(0.01)
 
     final_balances = np.array(final_balances)
     fig2, ax2 = plt.subplots(figsize=(8,5))
