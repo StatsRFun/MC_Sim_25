@@ -59,10 +59,10 @@ if run_simulation:
         mean_vals = all_paths.mean(axis=0)
         sd_vals = all_paths.std(axis=0)
         fig, ax = plt.subplots(figsize=(7,4))
-        ax.plot(range(years+1), mean_vals, color='black', linewidth=3, label='Mean')
+        ax.plot(range(years+1), mean_vals, color='black', linewidth=5, label='Mean')
         ax.fill_between(range(years+1), mean_vals-1.5*sd_vals, mean_vals+1.5*sd_vals, color='black', alpha=0.2, label='±1.5 SD')
         for p in all_paths:
-            if any((p > mean_vals+2*sd_vals) | (p < mean_vals-2*sd_vals)):
+            if any((p > mean_vals+1.5*sd_vals) | (p < mean_vals-1.5*sd_vals)):
                 ax.plot(range(years+1), p, color='green', alpha=0.2)
         ax.set_title('Portfolio Growth with ±2 SD Wedge')
         ax.set_xlabel('Years')
@@ -92,9 +92,9 @@ if run_simulation:
             sd_vals = all_paths.std(axis=0)
             fig, ax = plt.subplots(figsize=(7,4))
             ax.plot(range(years+1), mean_vals, color='black', linewidth=3, label='Mean')
-            ax.fill_between(range(years+1), mean_vals-2*sd_vals, mean_vals+2*sd_vals, color='black', alpha=0.2, label='±2 SD')
+            ax.fill_between(range(years+1), mean_vals-1.5*sd_vals, mean_vals+1.5*sd_vals, color='black', alpha=0.2, label='±2 SD')
             for p in all_paths:
-                if any((p > mean_vals+2*sd_vals) | (p < mean_vals-2*sd_vals)):
+                if any((p > mean_vals+1.5*sd_vals) | (p < mean_vals-1.5*sd_vals)):
                     ax.plot(range(years+1), p, color='green', alpha=0.2)
             ax.set_title(f'Real-time Portfolio Growth (Trial {sim+1})')
             ax.set_xlabel('Years')
