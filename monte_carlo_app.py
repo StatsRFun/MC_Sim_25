@@ -91,8 +91,8 @@ if run_simulation:
             mean_vals = all_paths.mean(axis=0)
             sd_vals = all_paths.std(axis=0)
             fig, ax = plt.subplots(figsize=(7,4))
-            ax.plot(range(years+1), mean_vals, color='darkgrey', linewidth=12, label='Mean')
-            ax.fill_between(range(years+1), mean_vals-1.5*sd_vals, mean_vals+1.5*sd_vals, color='black', alpha=0.2, label='±2 SD')
+            ax.plot(range(years+1), mean_vals, color='purple', linewidth=12, label='Mean')
+            ax.fill_between(range(years+1), mean_vals-1.5*sd_vals, mean_vals+1.5*sd_vals, color='black', alpha=0.2, label='±1.5 SD')
             for p in all_paths:
                 if any((p > mean_vals+1.5*sd_vals) | (p < mean_vals-1.5*sd_vals)):
                     ax.plot(range(years+1), p, color='green', alpha=0.2)
