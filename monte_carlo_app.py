@@ -10,8 +10,8 @@ st.write("""
 This app simulates possible portfolio growth paths using Monte Carlo methods.
 Features:
 - Real-time trial counter and balance display in separate boxes.
-- Chart displayed first with a thick black mean line and ±2 SD wedge.
-- Deep green lines for other paths outside the ±2 SD range.
+- Chart displayed first with a thick black mean line and ±1.5 SD wedge.
+- Deep green lines for other paths outside the ±1.5 SD range.
 - Fast Mode toggle for bulk calculation or Animated Mode for trial-by-trial visualization.
 """)
 
@@ -60,7 +60,7 @@ if run_simulation:
         sd_vals = all_paths.std(axis=0)
         fig, ax = plt.subplots(figsize=(7,4))
         ax.plot(range(years+1), mean_vals, color='black', linewidth=3, label='Mean')
-        ax.fill_between(range(years+1), mean_vals-2*sd_vals, mean_vals+2*sd_vals, color='black', alpha=0.2, label='±2 SD')
+        ax.fill_between(range(years+1), mean_vals-1.5*sd_vals, mean_vals+1.5*sd_vals, color='black', alpha=0.2, label='±1.5 SD')
         for p in all_paths:
             if any((p > mean_vals+2*sd_vals) | (p < mean_vals-2*sd_vals)):
                 ax.plot(range(years+1), p, color='green', alpha=0.2)
